@@ -4,7 +4,7 @@ QListViews complemented by QItemDelegates and QItemModels seemed very daunting t
 
 Included in the example are extra methods on the QListView and QItemModel classes that are can be used to insert, delete, and otherwise modify the view/model after its initial instantiation—features which aren't implemented in this example application in an effort to keep things as simple as possible.
 
-Please let me know if there are better ways to do things (especially when painting the list items), I would love to learn how to be a more proper and effective Qt and/or Python person.
+Please let me know if there are better ways to do things (especially when painting the list items), I would love to learn how to become a more proper and effective Qt and/or Python person.
 
     python main.py
 
