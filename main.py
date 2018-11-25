@@ -27,7 +27,6 @@ class ListView(QtWidgets.QListView):
                                 background: #eee;
                                 border: none;
                                 border-right: 1px solid #eee;
-                                padding: 0;
                               }""")
         color = QtGui.QColor()
         color.setNamedColor("#999")
@@ -243,56 +242,6 @@ class TextEdit(QtWidgets.QTextEdit):
 
 
 class View:
-    things = [
-        {
-            "body": "Lorem ipsum dolor sit amet "
-            "consectetur adipiscing elit.\n\n"
-            "Curabitur fringilla volutpat "
-            "purus, a volutpat quam feugiat eget. "
-            "Nulla libero orci, rhoncus quis arcu "
-            "eget, efficitur scelerisque est.\n\nNam "
-            "elementum ante vitae risus auctor mattis. "
-            "Maecenas aliquet placerat purus, at "
-            "sollicitudin augue gravida at.",
-            "date": time() - 400,
-            "pinned": False,
-        },
-        {
-            "body": "Ut iaculis a elit a fringilla. Duis "
-            "et tincidunt augue, non porttitor felis.",
-            "date": time() - 600,
-            "pinned": False,
-        },
-        {
-            "body": "Orci varius natoque penatibus et magnis "
-            "dis parturient montes, nascetur ridiculus "
-            "mus.\n\nAliquam sodales risus tortor, et "
-            "ultrices lacus consectetur a.\n\n Cras "
-            "iaculis odio quis mauris fringilla egestas. "
-            "Cras vitae dolor quis turpis congue auctor et "
-            "et eros.\n\nNulla ornare, dolor nec consectetur "
-            "scelerisque, tellus lorem molestie felis, a "
-            "auctor risus lorem vitae velit.",
-            "date": time() - 800,
-            "pinned": True,
-        },
-        {
-            "body": "Vestibulum ac mi id neque aliquam "
-            "vestibulum.\n\nPhasellus elementum metus "
-            "ligula, quis laoreet nisi commodo ac.",
-            "date": time() - 1000,
-            "pinned": False,
-        },
-        {
-            "body": "Aenean vel neque id nunc tincidunt "
-            "efficitur. Mauris dapibus, nulla vitae "
-            "accumsan faucibus, nulla lacus facilisis "
-            "felis, lobortis molestie tortor nibh eu arcu.",
-            "date": time() - 1200,
-            "pinned": False,
-        },
-    ]
-
     def __init__(self):
         self.app = QtWidgets.QApplication([])
         self.app.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps)
@@ -319,9 +268,67 @@ class View:
         exit(self.app.exec_())
 
     def populate_item_model(self):
-        self.things.sort(key=lambda t: (t["pinned"], t["date"]), reverse=True)
+        # Let us pretend we are getting this data from
+        # someplace really clever, rather than from a
+        # method a few lines down...
+        self.things = sorted(self.data(),
+                            key=lambda t: (t["pinned"], t["date"]),
+                            reverse=True)
         for thing in self.things:
             self.list_view.append(thing)
+
+    @staticmethod
+    def data():
+        things = [
+            {
+                "body": "Lorem ipsum dolor sit amet "
+                "consectetur adipiscing elit.\n\n"
+                "Curabitur fringilla volutpat "
+                "purus, a volutpat quam feugiat eget. "
+                "Nulla libero orci, rhoncus quis arcu "
+                "eget, efficitur scelerisque est.\n\nNam "
+                "elementum ante vitae risus auctor mattis. "
+                "Maecenas aliquet placerat purus, at "
+                "sollicitudin augue gravida at.",
+                "date": time() - 400,
+                "pinned": False,
+            },
+            {
+                "body": "Ut iaculis a elit a fringilla. Duis "
+                "et tincidunt augue, non porttitor felis.",
+                "date": time() - 600,
+                "pinned": False,
+            },
+            {
+                "body": "Orci varius natoque penatibus et magnis "
+                "dis parturient montes, nascetur ridiculus "
+                "mus.\n\nAliquam sodales risus tortor, et "
+                "ultrices lacus consectetur a.\n\n Cras "
+                "iaculis odio quis mauris fringilla egestas. "
+                "Cras vitae dolor quis turpis congue auctor et "
+                "et eros.\n\nNulla ornare, dolor nec consectetur "
+                "scelerisque, tellus lorem molestie felis, a "
+                "auctor risus lorem vitae velit.",
+                "date": time() - 800,
+                "pinned": True,
+            },
+            {
+                "body": "Vestibulum ac mi id neque aliquam "
+                "vestibulum.\n\nPhasellus elementum metus "
+                "ligula, quis laoreet nisi commodo ac.",
+                "date": time() - 1000,
+                "pinned": False,
+            },
+            {
+                "body": "Aenean vel neque id nunc tincidunt "
+                "efficitur. Mauris dapibus, nulla vitae "
+                "accumsan faucibus, nulla lacus facilisis "
+                "felis, lobortis molestie tortor nibh eu arcu.",
+                "date": time() - 1200,
+                "pinned": False,
+            },
+        ]
+        return things
 
 
 if __name__ == "__main__":
