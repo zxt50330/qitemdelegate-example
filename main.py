@@ -290,13 +290,13 @@ class View:
                 "elementum ante vitae risus auctor mattis. "
                 "Maecenas aliquet placerat purus, at "
                 "sollicitudin augue gravida at.",
-                "date": time() - 400,
+                "date": time() - 10820,
                 "pinned": False,
             },
             {
                 "body": "Ut iaculis a elit a fringilla. Duis "
                 "et tincidunt augue, non porttitor felis.",
-                "date": time() - 600,
+                "date": time() - 190600,
                 "pinned": False,
             },
             {
@@ -309,14 +309,14 @@ class View:
                 "et eros.\n\nNulla ornare, dolor nec consectetur "
                 "scelerisque, tellus lorem molestie felis, a "
                 "auctor risus lorem vitae velit.",
-                "date": time() - 800,
+                "date": time() - 229200,
                 "pinned": True,
             },
             {
                 "body": "Vestibulum ac mi id neque aliquam "
                 "vestibulum.\n\nPhasellus elementum metus "
                 "ligula, quis laoreet nisi commodo ac.",
-                "date": time() - 1000,
+                "date": time() - 343010,
                 "pinned": False,
             },
             {
@@ -324,7 +324,7 @@ class View:
                 "efficitur. Mauris dapibus, nulla vitae "
                 "accumsan faucibus, nulla lacus facilisis "
                 "felis, lobortis molestie tortor nibh eu arcu.",
-                "date": time() - 1200,
+                "date": time() - 445600,
                 "pinned": False,
             },
         ]
