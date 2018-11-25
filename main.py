@@ -52,7 +52,7 @@ class ListView(QtWidgets.QListView):
         self.model.clear()
 
     def get_title(self, thing):
-        target = 30
+        target = 27
         if thing["pinned"]:
             target -= 5
         text = re.compile("\s*(.*)\n?").match(thing["body"]).groups()[0]
@@ -69,8 +69,8 @@ class ListView(QtWidgets.QListView):
                 del text[i]
         if len(text) > 1 and text[1] != self.get_title(thing):
             return (
-                "".join([text[1][0:37].strip(), "…"])
-                if len(text[1]) > 40
+                "".join([text[1][0:34].strip(), "…"])
+                if len(text[1]) > 37
                 else text[1].strip()
             )
         return None
